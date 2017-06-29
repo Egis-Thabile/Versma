@@ -4,23 +4,24 @@ import com.egis.Session
 
 Session s = Kernel.get(Session.class);
 
-def path = doc.node.getFullPath()
+def path = doc.node.node.parentNode.fullPath
 def pathUp = path.substring(0, path.lastIndexOf('/'))
+def commonPath = pathUp.substring(pathUp.lastIndexOf('/') + 1, pathUp.length())
 def supDocNode = ''
 
-if (pathUp.substring(pathUp.lastIndexOf('/') + 1, pathUp.length()) == 'Amendments Commercial') {
+if (commonPath == 'Amendments Commercial') {
     supDocNode = 'Commercial Amend Docs'
 }
 
-if (pathUp.substring(pathUp.lastIndexOf('/') + 1, pathUp.length()) == 'Amendments Domestic') {
+if (commonPath == 'Amendments Domestic') {
     supDocNode = 'Domestic Amend Docs'
 }
 
-if (pathUp.substring(pathUp.lastIndexOf('/') + 1, pathUp.length()) == 'Amendments Santam Commercial') {
+if (commonPath == 'Amendments Santam Commercial') {
     supDocNode = 'Santam Commercial Amend Docs'
 }
 
-if (pathUp.substring(pathUp.lastIndexOf('/') + 1, pathUp.length()) == 'Amendments Santam Domestic') {
+if (commonPath == 'Amendments Santam Domestic') {
     supDocNode = 'Santam Domestic Amend Docs'
 }
 
