@@ -6,22 +6,22 @@ Session s = Kernel.get(Session.class);
 
 def path = doc.node.node.parentNode.fullPath
 def pathUp = path.substring(0, path.lastIndexOf('/'))
-def commonPath = pathUp.substring(pathUp.lastIndexOf('/') + 1, pathUp.length())
+def parentNode = path.split('/')[-1]
 def supDocNode = ''
 
-if (commonPath == 'Amendments Commercial') {
+if (parentNode == 'Amendments Commercial') {
     supDocNode = 'Commercial Amend Docs'
 }
 
-if (commonPath == 'Amendments Domestic') {
+if (parentNode == 'Amendments Domestic') {
     supDocNode = 'Domestic Amend Docs'
 }
 
-if (commonPath == 'Amendments Santam Commercial') {
+if (parentNode == 'Amendments Santam Commercial') {
     supDocNode = 'Santam Commercial Amend Docs'
 }
 
-if (commonPath == 'Amendments Santam Domestic') {
+if (parentNode == 'Amendments Santam Domestic') {
     supDocNode = 'Santam Domestic Amend Docs'
 }
 
